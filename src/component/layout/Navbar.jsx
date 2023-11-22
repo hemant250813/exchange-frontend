@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-white p-4">
+    <div className="bg-black text-white p-4">
       <div className="container mx-auto flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Crypto Dashboard</h1>
 

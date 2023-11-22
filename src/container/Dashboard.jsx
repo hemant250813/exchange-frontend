@@ -88,24 +88,24 @@ const Dashboard = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         <Navbar />
         <main
-          className="flex-1 overflow-x-hidden overflow-y-auto scrollbar scrollbar-thumb-[#4fd1c5] scrollbar-track-[#93C5FD] bg-indigo-600 p-4"
+          className="flex-1 overflow-x-hidden overflow-y-auto scrollbar scrollbar-thumb-[#4B5563] scrollbar-track-[#000000] bg-gray-600 p-4"
           style={{ maxHeight: "calc(100vh - 120px)", maxWidth: "100%" }}
         >
-          <h2 className="text-2xl font-semibold mb-4">
-            Welcome to the Dashboard
+          <h2 className="text-2xl font-semibold mb-4 text-white">
+           Market
           </h2>
 
           {/* Column Headers */}
           <div
-            className="flex bg-teal-500 p-4 rounded-md w-full max-w-screen-xl mx-auto mb-5"
+            className="flex  bg-black p-4 rounded-md w-full max-w-screen-xl text-teal-300 mx-auto mb-5"
             style={{
               position: "sticky",
               top: 0,
               zIndex: 1,
-              background: "#4fd1c5",
+              // background: "#4fd1c5",
             }}
           >
-            <div className="flex-1">
+            <div className="flex-1 ">
               <p
                 className={`${
                   windowWidth >= 1024 ? "text-lg" : "text-xs"
@@ -136,11 +136,11 @@ const Dashboard = () => {
           {cryptoCurrency?.map((crypto, index) => (
             <div
               key={index}
-              className="bg-indigo-300 p-4 rounded-md max-w-screen-xl mx-auto mb-5 flex transition-transform transform hover:translate-y-3 cursor-pointer"
+              className="bg-black hover:bg-teal-700  text-white p-4 rounded-md max-w-screen-xl mx-auto mb-5 flex transition-transform transform hover:translate-y-3 cursor-pointer"
               style={{ transition: "transform 0.1s ease" }}
             >
               <div className="flex-1">
-                <h3 className={`text-lg font-semibold`}>{crypto?.name}</h3>
+                <h3 className={`text-lg font-semibold `}>{crypto?.name}</h3>
               </div>
               <div className="flex flex-col sm:flex-row">
                 <p className={`text-xs mb-2 sm:mb-0 sm:mr-5`}>
