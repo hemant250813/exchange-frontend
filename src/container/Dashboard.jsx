@@ -7,13 +7,16 @@ import {
   Footer,
 } from "../component/layout/index";
 import { FcComboChart } from "react-icons/fc";
+import Market from "../assets/videos/market.mp4";
 import { getLocalStorageItem } from "../utils/helper";
-import Market from "../component/commonComponent/MarketFluctuationIcon";
+import { hover } from "@testing-library/user-event/dist/hover";
+// import Market from "../assets/videos/mobile-view.mp4";
 
 const Dashboard = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [cryptoCurrency, setCryptoCurrency] = useState([]);
+  const [isHovered, setIsHovered] = useState(false);
 
   const navigate = useNavigate();
 
@@ -93,14 +96,27 @@ const Dashboard = () => {
           className="flex-1 overflow-x-hidden overflow-y-auto scrollbar scrollbar-thumb-[#4B5563] scrollbar-track-[#000000] bg-gray-600 p-4"
           style={{ maxHeight: "calc(100vh - 120px)", maxWidth: "100%" }}
         >
-          <h2 className="text-2xl font-semibold mb-4 text-white">
-           Market
-           <Market/>
-          </h2>
+          {/* Title */}
+          <div className="flex   p-4 rounded-md w-full max-w-screen-xl mx-auto mb-5">
+            <div className="flex-1 ">
+              <span className="text-3xl text-white font-bold">Market</span>
+            </div>
+            <div className={`"flex"}`}>
+              <video className="object-cover w-14 h-14" autoPlay loop muted>
+                <source src={Market} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          {/* Title */}
 
           {/* Column Headers */}
           <div
-            className="flex  bg-black p-4 rounded-md w-full max-w-screen-xl text-teal-300 mx-auto mb-5"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className={`flex ${
+              isHovered ? "thunder-spark" : ""
+            }  bg-black p-4 rounded-md w-full max-w-screen-xl text-teal-300 mx-auto mb-5 border border-[#33FFF0]`}
             style={{
               position: "sticky",
               top: 0,
@@ -111,10 +127,10 @@ const Dashboard = () => {
             <div className="flex-1 ">
               <p
                 className={`${
-                  windowWidth >= 1024 ? "text-lg" : "text-xs"
-                }  font-semibold`}
+                  windowWidth >= 1024 ? "text-lg" : "text-base"
+                }  font-semibold `}
               >
-                Cryptocurrency
+                Exchange
               </p>
             </div>
             <div className={`${windowWidth >= 768 && "flex"}`}>
@@ -149,7 +165,13 @@ const Dashboard = () => {
                 <p className={`text-xs mb-2 sm:mb-0 sm:mr-5`}>
                   {crypto?.price}
                 </p>
-                <p className={`text-xs font-bold`}>{crypto?.change}</p>
+                <p
+                  className={`text-xs font-bold p-2 rounded-md ${
+                    crypto?.change > 0 ? "bg-green-800" : "bg-red-600"
+                  }`}
+                >
+                  {crypto?.change}
+                </p>
               </div>
             </div>
           ))}
