@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.snake-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #fff; /* Adjust the color and thickness as needed */
+  animation: snakeAnimation 5s linear infinite;
+}
+
