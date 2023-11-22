@@ -6,7 +6,9 @@ import {
   BottomNavbar,
   Footer,
 } from "../component/layout/index";
+import { FcComboChart } from "react-icons/fc";
 import { getLocalStorageItem } from "../utils/helper";
+import Market from "../component/commonComponent/MarketFluctuationIcon";
 
 const Dashboard = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -93,6 +95,7 @@ const Dashboard = () => {
         >
           <h2 className="text-2xl font-semibold mb-4 text-white">
            Market
+           <Market/>
           </h2>
 
           {/* Column Headers */}
