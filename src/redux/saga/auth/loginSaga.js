@@ -27,7 +27,6 @@ function* loginRequest(action) {
       notifySuccess(data.meta.message);
     } else if (data.meta.code !== 200) {
       yield put(loginFailure(data));
-      yield call(action.payload.callback, data);
       notifyWarning(data.meta.message);
     }
   } catch (error) {

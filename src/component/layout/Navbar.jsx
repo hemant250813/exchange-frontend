@@ -60,15 +60,15 @@ const Navbar = () => {
             }}
           >
             <ul>
-              <li className="py-2 px-4 cursor-pointer hover:bg-blue-500 hover:text-white">
+              <li className="py-2 px-4 cursor-pointer hover:bg-[#4fd1c5] hover:text-white">
                 Profile
               </li>
-              <li className="py-2 px-4 cursor-pointer hover:bg-blue-500 hover:text-white">
+              <li className="py-2 px-4 cursor-pointer hover:bg-[#4fd1c5] hover:text-white">
                 Settings
               </li>
               <li
                 onClick={(e) => handleLogOut(e)}
-                className="py-2 px-4 cursor-pointer hover:bg-blue-500 hover:text-white"
+                className="py-2 px-4 cursor-pointer hover:bg-[#4fd1c5] hover:text-white"
               >
                 Logout
               </li>

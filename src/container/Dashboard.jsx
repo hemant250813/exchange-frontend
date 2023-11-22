@@ -80,36 +80,8 @@ const Dashboard = () => {
       navigate("/");
     }
   }, []);
-  console.log("WebSocket message received:", cryptoCurrency);
-  // Sample array of cryptocurrency data
-  const cryptoData = [
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    { name: "Bitcoin", symbol: "BTC", price: 50000 },
-    { name: "Ethereum", symbol: "ETH", price: 3500 },
-    // Add more cryptocurrency data as needed
-  ];
 
+  // Sample array of cryptocurrency data
   return (
     <div className="flex h-screen">
       {windowWidth >= 768 && <Sidebar />}
@@ -117,7 +89,7 @@ const Dashboard = () => {
         <Navbar />
         <main
           className="flex-1 overflow-x-hidden overflow-y-auto scrollbar scrollbar-thumb-[#4fd1c5] scrollbar-track-[#93C5FD] bg-indigo-600 p-4"
-          style={{ maxHeight: "calc(100vh - 120px)" }}
+          style={{ maxHeight: "calc(100vh - 120px)", maxWidth: "100%" }}
         >
           <h2 className="text-2xl font-semibold mb-4">
             Welcome to the Dashboard
@@ -142,11 +114,11 @@ const Dashboard = () => {
                 Cryptocurrency
               </p>
             </div>
-            <div className="flex">
+            <div className={`${windowWidth >= 768 && "flex"}`}>
               <p
-                className={`${
-                  windowWidth >= 1024 ? "text-lg" : "text-xs"
-                }  font-semibold mr-10`}
+                className={`${windowWidth >= 1024 ? "text-lg" : "text-xs"}  ${
+                  windowWidth <= 768 && "mb-3"
+                } font-semibold mr-10`}
               >
                 Price
               </p>
@@ -164,31 +136,22 @@ const Dashboard = () => {
           {cryptoCurrency?.map((crypto, index) => (
             <div
               key={index}
-              className="bg-indigo-300 p-4 rounded-md w-full max-w-screen-xl mx-auto mb-5 flex transition-transform transform hover:translate-y-3 cursor-pointer"
+              className="bg-indigo-300 p-4 rounded-md max-w-screen-xl mx-auto mb-5 flex transition-transform transform hover:translate-y-3 cursor-pointer"
               style={{ transition: "transform 0.1s ease" }}
             >
               <div className="flex-1">
-                <h3
-                  className={`${
-                    windowWidth >= 1024 ? "text-lg" : "text-xs"
-                  } font-semibold`}
-                >
-                  {crypto?.name}
-                </h3>
+                <h3 className={`text-lg font-semibold`}>{crypto?.name}</h3>
               </div>
-              <div className="flex">
-                <p className="text-xs mr-10">{crypto?.price}</p>
-                <p
-                  className={`${
-                    windowWidth >= 1024 ? "text-lg" : "text-xs"
-                  } font-bold`}
-                >
-                  {crypto?.change}
+              <div className="flex flex-col sm:flex-row">
+                <p className={`text-xs mb-2 sm:mb-0 sm:mr-5`}>
+                  {crypto?.price}
                 </p>
+                <p className={`text-xs font-bold`}>{crypto?.change}</p>
               </div>
             </div>
           ))}
         </main>
+
         {/* Bottom navbar */}
         {windowWidth < 768 ? <BottomNavbar /> : <Footer />}
       </div>

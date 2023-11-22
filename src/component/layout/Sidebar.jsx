@@ -1,5 +1,6 @@
 // src/components/Sidebar.jsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi"; // Import hamburger and close icons
 import { RxDashboard } from "react-icons/rx";
 import { BsSuitcaseLgFill } from "react-icons/bs";
@@ -30,11 +31,17 @@ const Sidebar = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-console.log("windowWidth",windowWidth);
+  console.log("windowWidth", windowWidth);
   return (
     <div
       className={`relative ${
-        windowWidth >=1024 ? isSidebarOpen ? "w-1/5" : "w-1/12": isSidebarOpen ? "w-2/5" : "w-1/5"
+        windowWidth >= 1024
+          ? isSidebarOpen
+            ? "w-1/5"
+            : "w-1/12"
+          : isSidebarOpen
+          ? "w-2/5"
+          : "w-1/5"
       } bg-gray-800 text-white h-screen p-4 transition-all duration-300`}
     >
       <div className="flex items-center justify-between mb-4">
@@ -55,37 +62,56 @@ console.log("windowWidth",windowWidth);
       {isSidebarOpen ? (
         <ul className="mt-4">
           <li className="mb-4">
-            <a href="#" className="text-[#4fd1c5] hover:text-blue-700">
+            <Link
+              to="/dashboard"
+              className="text-[#4fd1c5] hover:text-blue-700"
+            >
               Dashboard
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="#" className="text-[#4fd1c5] hover:text-blue-700">
+            <Link
+              to="/dashboard"
+              className="text-[#4fd1c5] hover:text-blue-700"
+            >
               Portfolio
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="#" className="text-[#4fd1c5] hover:text-blue-700">
+            <Link
+              to="/dashboard"
+              className="text-[#4fd1c5] hover:text-blue-700"
+            >
               Transactions
-            </a>
+            </Link>
           </li>
         </ul>
       ) : (
         <ul className="mt-4">
           <li className="mb-4">
-            <a href="#" className="text-[#4fd1c5] hover:text-blue-700">
+            <Link
+              to="/dashboard"
+              className="text-[#4fd1c5] hover:text-blue-700"
+            >
+              {" "}
               <RxDashboard size={32} />
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="#" className="text-[#4fd1c5] hover:text-blue-700">
+            <Link
+              to="/dashboard"
+              className="text-[#4fd1c5] hover:text-blue-700"
+            >
               <BsSuitcaseLgFill size={32} />
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="#" className="text-[#4fd1c5] hover:text-blue-700">
+            <Link
+              to="/dashboard"
+              className="text-[#4fd1c5] hover:text-blue-700"
+            >
               <AiOutlineTransaction size={32} />
-            </a>
+            </Link>
           </li>
         </ul>
       )}

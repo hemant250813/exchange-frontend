@@ -10,14 +10,14 @@ function* registrationRequest(action) {
       "/api/v1/registration",
       action?.payload?.formPayload
     );
+   
     if (data?.meta?.code === 200) {
       yield put(registrationSuccess(data));
       yield call(action.payload.callback, data);
       notifySuccess(data?.meta?.message);
-    } else if (data?.code === 400) {
+    } else if (data?.meta?.code === 400) {
       yield put(registrationFailure(data));
-      yield call(action.payload.callback, data);
-      notifyWarning(data.message);
+      notifyWarning(data?.meta?.message);
     }
   } catch (error) {
     yield put(registrationFailure());

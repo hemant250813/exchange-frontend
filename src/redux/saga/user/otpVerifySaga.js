@@ -2,7 +2,7 @@ import { all, call, put, takeEvery } from "redux-saga/effects";
 import { OTP_VERIFY } from "../../action/types";
 import { otpVerifySuccess, otpVerifyFailure } from "../../action";
 import API from "../../../utils/api";
-import { notifySuccess, notifyWarning } from "../../../utils/helper";
+import { notifySuccess, notifyWarning, setLocalStorageItem } from "../../../utils/helper";
 
 function* otpVerifyRequest(action) {
   try {
@@ -12,11 +12,16 @@ function* otpVerifyRequest(action) {
     );
     if (data?.meta?.code === 200) {
       yield put(otpVerifySuccess(data));
+      yield call(setLocalStorageItem, "login", JSON.stringify(data));
+      yield call(
+        setLocalStorageItem,
+        "token",
+        JSON.stringify(data?.meta?.token)
+      );
       yield call(action.payload.callback, data);
       notifySuccess(data?.meta?.message);
     } else if (data?.code === 400) {
       yield put(otpVerifyFailure(data));
-      yield call(action.payload.callback, data);
       notifyWarning(data.message);
     }
   } catch (error) {

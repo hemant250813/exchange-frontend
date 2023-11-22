@@ -52,7 +52,7 @@ const OtpScreen = () => {
             callback: (data) => {
               if (data) {
                 removeLocalStorageItem("mobile");
-                navigate("/");
+                navigate("/dashboard");
               }
             },
           })

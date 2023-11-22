@@ -10,9 +10,9 @@ const BottomNavbar = () => {
     <div className="container mx-auto flex items-center justify-center">
       <div className="flex space-x-14">
         {/* Navbar Links */}
-        <Link to="/" className="text-[#4fd1c5] hover:text-blue-700"> <RxDashboard size={32} /></Link>
+        <Link to="/dashboard" className="text-[#4fd1c5] hover:text-blue-700"> <RxDashboard size={32} /></Link>
         <Link to="/dashboard" className="text-[#4fd1c5] hover:text-blue-700"><BsSuitcaseLgFill size={32} /></Link>
-        <Link to="/contact" className="text-[#4fd1c5] hover:text-blue-700"><AiOutlineTransaction size={32} /></Link>
+        <Link to="/dashboard" className="text-[#4fd1c5] hover:text-blue-700"><AiOutlineTransaction size={32} /></Link>
       </div>
     </div>
   </div>
