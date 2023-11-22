@@ -46,13 +46,13 @@ const Navbar = () => {
             <img
               src={profilePic}
               alt="Profile"
-              className="w-8 h-8 rounded-full"
+              className="w-11 h-11 rounded-full border border-[#33FFF0] border-2"
             />
           </button>
 
           {isDropdownOpen && (
             <div
-            className="absolute top-full right-0 mt-2 bg-white text-gray-800 rounded shadow-md transition-all duration-300"
+            className="absolute top-full right-0 mt-4 bg-black  text-gray-800 rounded shadow-md transition-all duration-300 border border-[#33FFF0] border-2"
             style={{
               position: "absolute",
               top: 30,
@@ -60,15 +60,15 @@ const Navbar = () => {
             }}
           >
             <ul>
-              <li className="py-2 px-4 cursor-pointer hover:bg-[#4fd1c5] hover:text-white">
+              <li className="py-2 px-4 cursor-pointer hover:bg-[#4fd1c5] hover:text-white text-gray-600 font-bold">
                 Profile
               </li>
-              <li className="py-2 px-4 cursor-pointer hover:bg-[#4fd1c5] hover:text-white">
+              <li className="py-2 px-4 cursor-pointer hover:bg-[#4fd1c5] hover:text-white text-gray-600 font-bold">
                 Settings
               </li>
               <li
                 onClick={(e) => handleLogOut(e)}
-                className="py-2 px-4 cursor-pointer hover:bg-[#4fd1c5] hover:text-white"
+                className="py-2 px-4 cursor-pointer hover:bg-[#4fd1c5] hover:text-white text-gray-600 font-bold"
               >
                 Logout
               </li>

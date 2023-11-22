@@ -60,11 +60,11 @@ const Sidebar = () => {
       </div>
 
       {isSidebarOpen ? (
-        <ul className="mt-4">
+        <ul className="mt-14">
           <li className="mb-4">
             <Link
               to="/dashboard"
-              className="text-[#33FFF0] hover:text-white"
+              className="text-[#33FFF0] hover:text-white font-bold"
             >
               Dashboard
             </Link>
@@ -72,7 +72,7 @@ const Sidebar = () => {
           <li className="mb-4">
             <Link
               to="/dashboard"
-              className="text-[#33FFF0] hover:text-white"
+              className="text-[#33FFF0] hover:text-white font-bold"
             >
               Portfolio
             </Link>
@@ -80,7 +80,7 @@ const Sidebar = () => {
           <li className="mb-4">
             <Link
               to="/dashboard"
-              className="text-[#33FFF0] hover:text-white"
+              className="text-[#33FFF0] hover:text-white font-bold"
             >
               Transactions
             </Link>

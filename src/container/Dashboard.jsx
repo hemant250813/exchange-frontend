@@ -6,11 +6,8 @@ import {
   BottomNavbar,
   Footer,
 } from "../component/layout/index";
-import { FcComboChart } from "react-icons/fc";
 import Market from "../assets/videos/market.mp4";
 import { getLocalStorageItem } from "../utils/helper";
-import { hover } from "@testing-library/user-event/dist/hover";
-// import Market from "../assets/videos/mobile-view.mp4";
 
 const Dashboard = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -97,7 +94,7 @@ const Dashboard = () => {
           style={{ maxHeight: "calc(100vh - 120px)", maxWidth: "100%" }}
         >
           {/* Title */}
-          <div className="flex   p-4 rounded-md w-full max-w-screen-xl mx-auto mb-5">
+          <div className="flex p-4 rounded-md w-full max-w-screen-xl mx-auto mb-5">
             <div className="flex-1 ">
               <span className="text-3xl text-white font-bold">Market</span>
             </div>
